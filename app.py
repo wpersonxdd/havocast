@@ -71,8 +71,8 @@ def replay(date_str):
     return text, chart(day)
 
 
-with gr.Blocks(title=f"{CITY} Air for Schools") as demo:
-    gr.Markdown(f"# {CITY} Air for Schools\nShould tomorrow's PE class be outdoors? "
+with gr.Blocks(title=f"HavoCast · {CITY}") as demo:
+    gr.Markdown(f"# HavoCast · {CITY}\nShould tomorrow's PE class be outdoors? "
                 f"A next-day PM2.5 forecast for {CITY}.\n\n*" + DISCLAIMER + "*")
     with gr.Tab("Tomorrow"):
         btn = gr.Button("Forecast tomorrow", variant="primary")

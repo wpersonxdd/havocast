@@ -1,4 +1,6 @@
-# Tashkent Air for Schools: should tomorrow's PE class be outdoors?
+# HavoCast: should tomorrow's PE class in Tashkent be outdoors?
+
+*Havo* means "air" in Uzbek. HavoCast forecasts tomorrow's air for schools.
 
 **Track:** AI + Climate
 **Team:** Komron Rustamjonov, Academic Lyceum by TTPU, Tashkent (solo)
