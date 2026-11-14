@@ -70,4 +70,4 @@ python app.py                 # demo at http://127.0.0.1:7860
 - 35 µg/m³ daily limit: [US EPA PM2.5 standard](https://www.epa.gov/pm-pollution/national-ambient-air-quality-standards-naaqs-pm).
 - End of US Embassy air data: [Kun.uz, 7 March 2025](https://kun.uz/en/news/2025/03/07/us-embassies-to-stop-sharing-air-quality-data-amid-budget-cuts).
 - Libraries: pandas, scikit-learn, matplotlib, Gradio, requests, joblib.
-- AI tools: [Claude Code](https://claude.com/claude-code) (Anthropic) helped write the code and this write-up. I checked, ran and can explain every step.
+- AI tools: [Claude Code](https://claude.com/claude-code) (Anthropic) helped write the code, this write-up and the demo video. The video narration uses a Microsoft text-to-speech voice via [edge-tts](https://github.com/rany2/edge-tts). I checked, ran and can explain every step.

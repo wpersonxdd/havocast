@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 .gradio/
 EXPLAINED_RU.md
+video/
