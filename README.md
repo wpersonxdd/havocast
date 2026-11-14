@@ -1,7 +1,7 @@
 # Tashkent Air for Schools: should tomorrow's PE class be outdoors?
 
 **Track:** AI + Climate
-**Team:** Komron [surname], [school] (solo)
+**Team:** Komron Rustamjonov, Academic Lyceum by TTPU, Tashkent (solo)
 
 > This project is a prototype, not health advice. PM2.5 values come from a computer model (CAMS), not from measuring stations.
 
