@@ -10,6 +10,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
 
+from config import CITY
 from features import THRESHOLD
 
 OUT = Path(__file__).resolve().parent.parent / "outputs"
@@ -25,7 +26,7 @@ def main():
     ax.plot(p["date"], p["persistence"], color="#94a3b8", lw=0.9, ls="--", label="baseline: tomorrow = today")
     ax.axhline(THRESHOLD, color="#dc2626", lw=1, ls=":", label=f"{THRESHOLD:.0f} µg/m³ daily limit")
     ax.set_ylabel("PM2.5, µg/m³")
-    ax.set_title("Tashkent, test year the model never saw (Nov 2025 – Nov 2026)")
+    ax.set_title(f"{CITY}, test year the model never saw (Nov 2025 – Nov 2026)")
     ax.legend(fontsize=8, frameon=False)
     fig.tight_layout()
     fig.savefig(OUT / "test_year.png", dpi=130)

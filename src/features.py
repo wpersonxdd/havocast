@@ -9,6 +9,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from config import HEATING_MONTHS
+
 DATA = Path(__file__).resolve().parent.parent / "data"
 THRESHOLD = 35.0  # µg/m³, US EPA 24-hour PM2.5 standard
 # Next-day weather a forecast can provide. Mixing height is left out: archived forecasts don't have it.
@@ -50,7 +52,7 @@ def daily_table(h: pd.DataFrame) -> pd.DataFrame:
     doy = tomorrow.dayofyear
     d["season_sin"] = np.sin(2 * np.pi * doy / 365.25)
     d["season_cos"] = np.cos(2 * np.pi * doy / 365.25)
-    d["heating_season"] = tomorrow.month.isin([11, 12, 1, 2, 3]).astype(int)
+    d["heating_season"] = tomorrow.month.isin(HEATING_MONTHS).astype(int)
     d["tomorrow_weekend"] = (tomorrow.dayofweek >= 5).astype(int)
 
     for col in FORECAST_SOURCE:

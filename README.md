@@ -63,6 +63,15 @@ python src/figures.py         # charts
 python app.py                 # demo at http://127.0.0.1:7860
 ```
 
+## Use it for another city
+The model is trained for one city at a time. A model trained on Tashkent is not valid anywhere else, so a new city always needs its own data and its own training run.
+
+1. Open `src/config.py` and set `CITY` to one of the presets (`Tashkent`, `Samarkand`, `Andijan`, `Nukus`), or add your city with its latitude, longitude, time zone and heating-season months.
+2. Re-run the pipeline: `python src/fetch_data.py`, `python src/train.py`, `python src/figures.py`. The school warning threshold is chosen again from the new city's training years.
+3. Run `python app.py`. The app, the advice and the charts use the new city's name.
+
+This overwrites `data/` and `outputs/`, which hold the Tashkent results described above, so keep a copy if you need them. Check how many days in the new test year are above 35 µg/m³: in a cleaner city there may be too few to judge the warnings. A quick check for Samarkand (14 Nov 2026) gave a mean error of 2.39 against 3.24 for the baseline, but only 1 day above 35 µg/m³ in its test year, so its warnings could not be evaluated.
+
 ## Sources
 - PM2.5: [Open-Meteo Air Quality API](https://open-meteo.com/en/docs/air-quality-api), based on [CAMS global atmospheric composition forecasts](https://atmosphere.copernicus.eu/) (Copernicus, ECMWF). CC BY 4.0.
 - Weather: [Open-Meteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api) (ERA5, Copernicus Climate Change Service) and [Open-Meteo Previous Runs API](https://open-meteo.com/en/docs/previous-runs-api) for archived day-ahead forecasts. CC BY 4.0.

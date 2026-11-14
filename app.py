@@ -1,4 +1,4 @@
-"""Gradio demo: tomorrow's air in Tashkent, as advice for a school PE teacher.
+"""Gradio demo: tomorrow's air in the city from src/config.py, as advice for a school PE teacher.
 
 Tab 1 forecasts tomorrow from live data. Tab 2 replays any day of the test year (Nov 2025 - Nov 2026),
 which the model never saw, and shows what it predicted next to what really happened.
@@ -16,13 +16,14 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
+from config import CITY  # noqa: E402
 from features import THRESHOLD  # noqa: E402
 from forecast_tomorrow import advice, forecast  # noqa: E402
 
 OUT = Path(__file__).resolve().parent / "outputs"
 MODEL_COL = "boosting (today+forecast) real forecast"
 DISCLAIMER = ("Prototype for a school project. PM2.5 values are CAMS model estimates from Open-Meteo, "
-              "not station measurements, and are likely lower than real levels in Tashkent.")
+              f"not station measurements, and are likely lower than real levels in {CITY}.")
 
 
 def load_test():
@@ -70,9 +71,9 @@ def replay(date_str):
     return text, chart(day)
 
 
-with gr.Blocks(title="Tashkent Air for Schools") as demo:
-    gr.Markdown("# Tashkent Air for Schools\nShould tomorrow's PE class be outdoors? "
-                "A next-day PM2.5 forecast for Tashkent.\n\n*" + DISCLAIMER + "*")
+with gr.Blocks(title=f"{CITY} Air for Schools") as demo:
+    gr.Markdown(f"# {CITY} Air for Schools\nShould tomorrow's PE class be outdoors? "
+                f"A next-day PM2.5 forecast for {CITY}.\n\n*" + DISCLAIMER + "*")
     with gr.Tab("Tomorrow"):
         btn = gr.Button("Forecast tomorrow", variant="primary")
         out = gr.Textbox(label="Advice for the PE teacher", lines=5)

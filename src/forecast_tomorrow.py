@@ -1,4 +1,4 @@
-"""Forecast tomorrow's PM2.5 for Tashkent from live data and turn it into advice for a school.
+"""Forecast tomorrow's PM2.5 for the city in config.py from live data and turn it into advice for a school.
 
 Fetches the last 8 days of PM2.5 (Open-Meteo / CAMS), recent weather and tomorrow's weather forecast
 (Open-Meteo Forecast API), builds the same features as in training and applies outputs/model.joblib.
@@ -12,7 +12,8 @@ import pandas as pd
 import requests
 
 from features import THRESHOLD, daily_table
-from fetch_data import AIR_URL, LAT, LON, TZ
+from config import CITY, LAT, LON, TZ
+from fetch_data import AIR_URL
 
 FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 MODEL = Path(__file__).resolve().parent.parent / "outputs" / "model.joblib"
@@ -72,7 +73,7 @@ def advice(f: dict) -> str:
            + (" (calm air lets smog build up)" if f["tomorrow_wind"] < 6 else ""),
            f"forecast rain {f['tomorrow_rain']} mm" + (" (rain washes particles out)" if f["tomorrow_rain"] >= 1 else "")]
     if f["heating_season"]:
-        why.append("it is heating season, when Tashkent's air is usually worst")
+        why.append(f"it is heating season, when {CITY}'s air is usually worst")
     return head + "\nWhy: " + "; ".join(why) + "."
 
 

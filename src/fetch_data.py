@@ -1,4 +1,4 @@
-"""Download hourly PM2.5 and weather for Tashkent from Open-Meteo and save them as CSV.
+"""Download hourly PM2.5 and weather for the city in config.py from Open-Meteo and save them as CSV.
 
 PM2.5: Open-Meteo Air Quality API (CAMS global model estimates, not station measurements).
 Weather: Open-Meteo Historical Weather API (ERA5 reanalysis).
@@ -13,8 +13,8 @@ from pathlib import Path
 import pandas as pd
 import requests
 
-LAT, LON = 41.3111, 69.2797          # central Tashkent
-TZ = "Asia/Tashkent"
+from config import LAT, LON, TZ
+
 START = "2022-10-01"                 # first full month of CAMS data for this point
 DATA = Path(__file__).resolve().parent.parent / "data"
 

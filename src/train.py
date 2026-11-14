@@ -1,4 +1,4 @@
-"""Train next-day PM2.5 models for Tashkent and compare them with simple baselines on the latest year.
+"""Train next-day PM2.5 models for the city in config.py and compare them with simple baselines on the latest year.
 
 Split by date: train on everything before TEST_START, test on TEST_START onwards. Days are never shuffled.
 
